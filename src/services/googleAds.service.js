@@ -35,9 +35,11 @@ export async function exchangeAdsCode(code) {
 
 async function getFreshAccessToken() {
   const now = Math.floor(Date.now() / 1000);
+
   if (mem.googleAds.access_token && now < mem.googleAds.access_token_expiry - 60) {
     return mem.googleAds.access_token;
   }
+
   if (!mem.googleAds.refresh_token) {
     throw new Error("No refresh_token saved for Google Ads. Reconnect via /ads/google/connect.");
   }
