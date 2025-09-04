@@ -6,6 +6,7 @@ import morgan from "morgan";
 import { getDb } from "./db.js";
 import authRoutes from "./routes/auth.routes.js";
 import googleAdsRoutes from "./routes/googleAds.routes.js";
+import metaAdsRoutes from "./routes/metaAds.routes.js";
 
 const app = express();
 
@@ -46,6 +47,8 @@ app.get("/", (_req, res) =>
 /* ---------- Routes ---------- */
 app.use("/auth", authRoutes);
 app.use("/ads/google", googleAdsRoutes);
+app.use("/api/ads/meta", metaAdsRoutes);
+
 
 /* ---------- 404 ---------- */
 app.use((req, res) => {
