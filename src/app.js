@@ -7,6 +7,7 @@ import { getDb } from "./db.js";
 import authRoutes from "./routes/auth.routes.js";
 import googleAdsRoutes from "./routes/googleAds.routes.js";
 import metaAdsRoutes from "./routes/metaAds.routes.js";
+import linkedinRoutes from "./routes/linkedin.routes.js";
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.get("/", (_req, res) =>
 app.use("/auth", authRoutes);
 app.use("/ads/google", googleAdsRoutes);
 app.use("/api/ads/meta", metaAdsRoutes);
+app.use("/", linkedinRoutes);
 
 
 /* ---------- 404 ---------- */
